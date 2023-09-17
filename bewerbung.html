@@ -4,19 +4,114 @@
 
 
 <head>
+
+<!--
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Loop mit Pause</title>
+
+
+-->
+
+
+    <title>Bitzinger Bewerbung</title>
+
+<style>
+
+.VideoContainer {
+
+position: relative;
+align-self: center;
+margin-left: auto;
+margin-right: auto;
+margin-top: 100vh;
+display: flex;
+
+
+}
+
+
+.VideoImContainer {
+    position: absolute; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+.KnopfContainer {
+
+position: relative;
+align-self: center;
+width: auto;
+height: 30px;
+display: flex;
+z-index: 100;
+margin-left: auto;
+margin-right: auto;
+
+
+}
+
+
+
+.Knopf {
+
+    position: relative; 
+    min-height: 100%;
+    width: 385px; 
+    height: 106px; 
+    z-index: -100;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    overflow: hidden;
+    transform: translate(0%, -10vh);
+    cursor: pointer;
+    background-image: url('/assets/Weiter.png');
+    background-size: cover;
+    border-width: 0px;
+    background-color: transparent;
+}
+
+.Knopf:hover {
+
+background-image: url('/assets/Hover.png');
+
+}
+
+
+</style>
+
+
+
 </head>
 
 
 <body>
-    <video id="Video" autoplay muted>
-        <source src="/assets/test video Opti.mp4" type="video/mp4">
-        Dein Browser unterstützt das Video-Tag nicht.
-    </video>
+  <div class="VideoContainer">
+    
+    <video class="VideoImContainer" id="Video" autoplay muted>
+      <source src="/assets/test video Opti.mp4" type="video/mp4">
+      Dein Browser unterstützt das Video-Tag nicht.
+  </video>
 
-    <button id="weiterButton">Weiter</button>
+
+  </div> 
+  
+ <div class="KnopfContainer">
+
+  <button class="Knopf" id="weiterButton"></button>
+
+ </div>
+
+   
 
 
 
