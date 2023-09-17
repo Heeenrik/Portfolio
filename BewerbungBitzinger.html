@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+
+<!--
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+-->
+
+
+    <title>Bitzinger Bewerbung</title>
+
+<style>
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+
+
+.VideoContainer {
+
+position: relative;
+align-self: center;
+margin-left: auto;
+margin-right: auto;
+margin-top: 100vh;
+display: flex;
+
+
+}
+
+
+.VideoImContainer {
+    position: absolute; 
+    right: 0; 
+    bottom: 0;
+    margin-top: auto;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+.KnopfContainer {
+
+position: relative;
+align-self: center;
+width: auto;
+height: 30px;
+display: flex;
+z-index: 100;
+margin-left: auto;
+margin-right: auto;
+
+
+}
+
+
+
+.Knopf {
+
+    position: relative; 
+    min-height: 100%;
+    width: 385px; 
+    height: 106px; 
+    z-index: -100;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    overflow: hidden;
+    transform: translate(0%, -10vh);
+    cursor: pointer;
+    background-image: url('/Users/henrik/Desktop/Weiter.png');
+    background-size: cover;
+    border-width: 0px;
+    background-color: transparent;
+    visibility: hidden;
+    
+
+}
+
+.Knopf:hover {
+
+background-image: url('/Users/henrik/Desktop/Hover.png');
+
+}
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+  <div class="VideoContainer">
+    
+    <video class="VideoImContainer" id="Video" autoplay muted>
+      <source src="/Users/henrik/Movies/test video Opti.mp4" type="video/mp4">
+      Dein Browser unterstützt das Video-Tag nicht.
+  </video>
+
+
+  </div> 
+  
+ <div class="KnopfContainer">
+
+  <button class="Knopf" id="weiterButton"></button>
+
+ </div>
+
+   
+
+
+
+<script>
+
+var Abschnitt = 0;
+var Endpunkt = 11;
+var video = document.getElementById("Video");
+
+// Funktion, um den Loop-Abschnitt zu steuern
+function repeat() {
+  var video = document.getElementById("Video");
+  if (video.currentTime >= Endpunkt) {
+    video.currentTime -= 1;
+  }
+
+if (video.currentTime >= 9 && video.currentTime <= 37) {
+  
+  document.getElementById("weiterButton").style.visibility = "visible";
+
+} else {
+
+  document.getElementById("weiterButton").style.visibility = "hidden";
+
+};
+
+
+  
+
+
+
+
+
+}
+
+
+
+
+
+// Event-Listener für das Video
+document.getElementById("Video").addEventListener('timeupdate', repeat);
+
+// Funktion, um das Video fortzusetzen
+function Weiter() {
+  var video = document.getElementById("Video");
+  Endpunkt += 4.05;
+  
+
+
+
+}
+
+
+
+
+
+// Event-Listener für den Button "Weiter"
+document.getElementById("weiterButton").addEventListener('click', Weiter);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
