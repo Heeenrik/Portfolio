@@ -12,7 +12,7 @@
 
 <body>
     <video id="Video" autoplay muted>
-        <source src="/assets/test video.mp4" type="video/mp4">
+        <source src="/assets/test video Opti.mp4" type="video/mp4">
         Dein Browser unterstützt das Video-Tag nicht.
     </video>
 
@@ -69,13 +69,13 @@ document.getElementById("Video").vid.ontimeupdate = repeat();
 <script>
 
 var Abschnitt = 0;
-var Endpunkt = 6;
+var Endpunkt = 5;
 
 // Funktion, um den Loop-Abschnitt zu steuern
 function repeat() {
   var video = document.getElementById("Video");
   if (video.currentTime >= Endpunkt) {
-    video.currentTime -= 2;
+    video.currentTime -= 2.05;
   }
 }
 
