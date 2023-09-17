@@ -126,8 +126,9 @@ background-image: url('/assets/Hover.png');
 <script>
 
 var Abschnitt = 0;
-var Endpunkt = 10.9;
+var Endpunkt = 11;
 var video = document.getElementById("Video");
+var Warten = 0;
 
 // Funktion, um den Loop-Abschnitt zu steuern
 function repeat() {
@@ -163,11 +164,20 @@ if (video.currentTime >= 9 && video.currentTime <= 37) {
 document.getElementById("Video").addEventListener('timeupdate', repeat);
 
 // Funktion, um das Video fortzusetzen
-function Weiter() {
+if (Warten == 0) {
+
+ function Weiter() {
   var video = document.getElementById("Video");
   Endpunkt += 4.05;
-  
 
+var Warten == 1
+setTimeout(300);
+var Warten == 0
+
+    
+};
+    
+   
 
 
 }
