@@ -1,16 +1,99 @@
-<img src="assets/UI element.png" alt="UI">
+<!DOCTYPE html>
+<html lang="en">
 
 
-<video id='video'>
-    <source src="assets/Idle.webm" type="video/webm">
-</video>
 
-<button id='playVid'>Play</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Loop mit Pause</title>
+</head>
 
-<video controls>
-  <source src="assets/Idle.webm" type="video/webm" />
-  <p>
-    Your browser doesn't support HTML video. Here is a
-    <a href="myVideo.mp4">link to the video</a> instead.
-  </p>
-</video>
+
+<body>
+    <video id="Video" autoplay muted>
+        <source src="/assets/test video.mp4" type="video/mp4">
+        Dein Browser unterstützt das Video-Tag nicht.
+    </video>
+
+    <button id="weiterButton">Weiter</button>
+
+
+
+
+
+<!--
+
+<script>
+
+
+
+var Abschnitt = 0
+var Endpunkt = 2
+
+
+
+
+function Weiter() {
+ 
+  weiterButton.addEventListener('click', function() {
+    Endpunkt += 2
+
+  };
+};
+
+
+
+
+function repeat() {
+  
+  if document.getElementById("Video").currentTime == Endpunkt {
+    
+    document.getElementById("Video").currentTime -= 2
+
+  };
+};
+
+
+
+document.getElementById("Video").vid.ontimeupdate = repeat();
+
+
+
+</script>
+
+
+
+-->
+
+<script>
+
+var Abschnitt = 0;
+var Endpunkt = 6;
+
+// Funktion, um den Loop-Abschnitt zu steuern
+function repeat() {
+  var video = document.getElementById("Video");
+  if (video.currentTime >= Endpunkt) {
+    video.currentTime -= 2;
+  }
+}
+
+// Event-Listener für das Video
+document.getElementById("Video").addEventListener('timeupdate', repeat);
+
+// Funktion, um das Video fortzusetzen
+function Weiter() {
+  var video = document.getElementById("Video");
+  Endpunkt += 4;
+}
+
+// Event-Listener für den Button "Weiter"
+document.getElementById("weiterButton").addEventListener('click', Weiter);
+
+
+</script>
+
+
+</body>
+</html>
