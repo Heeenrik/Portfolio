@@ -75,7 +75,7 @@ var Endpunkt = 5;
 function repeat() {
   var video = document.getElementById("Video");
   if (video.currentTime >= Endpunkt) {
-    video.currentTime -= 2.05;
+    video.currentTime -= 2;
   }
 }
 
@@ -85,7 +85,7 @@ document.getElementById("Video").addEventListener('timeupdate', repeat);
 // Funktion, um das Video fortzusetzen
 function Weiter() {
   var video = document.getElementById("Video");
-  Endpunkt += 4;
+  Endpunkt += 4.1;
 }
 
 // Event-Listener für den Button "Weiter"
