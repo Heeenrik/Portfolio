@@ -18,6 +18,10 @@
 
 <style>
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+
+
 .VideoContainer {
 
 position: relative;
@@ -35,6 +39,7 @@ display: flex;
     position: absolute; 
     right: 0; 
     bottom: 0;
+    margin-top: auto;
     min-width: 100%; 
     min-height: 100%;
     width: auto; 
@@ -78,11 +83,14 @@ margin-right: auto;
     background-size: cover;
     border-width: 0px;
     background-color: transparent;
+    visibility: hidden;
+    
+
 }
 
 .Knopf:hover {
 
-background-image: url('/assets/Hover.png');
+
 
 }
 
@@ -118,27 +126,89 @@ background-image: url('/assets/Hover.png');
 <script>
 
 var Abschnitt = 0;
-var Endpunkt = 11;
+var Endpunkt = 10.5;
+var video = document.getElementById("Video");
+var Warten = 0;
 
-// Funktion, um den Loop-Abschnitt zu steuern
+// Loop
 function repeat() {
   var video = document.getElementById("Video");
   if (video.currentTime >= Endpunkt) {
     video.currentTime -= 1;
   }
+
+if (video.currentTime >= 9 && video.currentTime <= 37) {
+  
+  document.getElementById("weiterButton").style.visibility = "visible";
+
+} else {
+
+  document.getElementById("weiterButton").style.visibility = "hidden";
+
+};
+
+
+  
+
+
+
+
+
 }
 
-// Event-Listener für das Video
+
+
+
+
+// EventListener Video
 document.getElementById("Video").addEventListener('timeupdate', repeat);
 
-// Funktion, um das Video fortzusetzen
-function Weiter() {
-  var video = document.getElementById("Video");
-  Endpunkt += 4.05;
-}
 
-// Event-Listener für den Button "Weiter"
+
+
+
+
+// Weiter
+
+
+ function Weiter() {
+
+  
+  if (Warten == 0) {
+
+    var video = document.getElementById("Video");
+    Endpunkt += 4.25;
+
+    Warten = 1;
+    document.getElementById("weiterButton").style.backgroundImage = "url('/assets/Hover.png')";
+    
+
+    
+  };
+
+  setTimeout(function() {
+      Warten = 0;
+      document.getElementById("weiterButton").style.backgroundImage = "url('/assets/Weiter.png')";
+      
+
+    }, 3000);
+    
+};
+    
+   
+
+
+
+
+
+
+
+
+// EventListener Weiter
 document.getElementById("weiterButton").addEventListener('click', Weiter);
+
+
+
 
 
 </script>
